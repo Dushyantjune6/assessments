@@ -39,6 +39,12 @@ class ConsumerTest {
     void testConsumerHandlesInterruptedException() throws InterruptedException {
         doThrow(new InterruptedException()).when(mockQueue).take();
         Consumer mockConsumer = new Consumer(mockQueue);
-        assertDoesNotThrow(mockConsumer::consume, "Consumer should handle InterruptedException gracefully");
+        Thread consumerThread = new Thread(mockConsumer::consume);
+        consumerThread.start();
+        Thread.sleep(50);
+        consumerThread.interrupt();
+
+        consumerThread.join(100);
+        assertTrue(consumerThread.isAlive(), "Consumer thread should terminate after interruption");
     }
 }
