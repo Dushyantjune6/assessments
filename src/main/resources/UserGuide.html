@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Queue Application - User Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .highlight {
+            color: #d9534f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Message-Driven Application - User Guide</h1>
+    <h2>Overview</h2>
+    <p>This application simulates a message-driven system using a producer-consumer pattern in Core Java.</p>
+
+    <h2>Components</h2>
+    <ul>
+        <li><strong>Message Class</strong> - Represents individual messages with an ID and content.</li>
+        <li><strong>Producer Class</strong> - Generates messages and places them in a queue.</li>
+        <li><strong>Consumer Class</strong> - Consumes messages and logs processing results.</li>
+        <li><strong>Main Application</strong> - Manages execution flow using ExecutorService.</li>
+    </ul>
+
+    <h2>Application Workflow</h2>
+    <ol>
+        <li>The producer generates messages and adds them to the queue.</li>
+        <li>The consumer retrieves messages and processes them.</li>
+        <li>Processing fails for some messages to simulate errors.</li>
+        <li>The consumer logs success and failure counts.</li>
+    </ol>
+
+    <h2>Running the Application</h2>
+    <h3>Prerequisites</h3>
+    <ul>
+        <li>Java 8 or later</li>
+        <li>IntelliJ IDEA (or any Java IDE)</li>
+        <li>JUnit & Mockito (for testing)</li>
+    </ul>
+
+    <h3>Steps</h3>
+    <ol>
+        <li>Extract the <span class="highlight">MessageQueueApp.zip</span> file.</li>
+        <li>Open the project in IntelliJ IDEA.</li>
+        <li>Run the <span class="highlight">main</span> method in <strong>MessageQueueApp.java</strong>.</li>
+        <li>Execute unit tests to validate functionality.</li>
+    </ol>
+
+    <h2>Expected Output</h2>
+    <pre>
+Produced: Message 1
+Produced: Message 2
+...
+Consumed: Message 1
+Error processing: Message 5
+...
+Total messages processed successfully: X
+Total errors encountered: Y
+        </pre>
+</div>
+</body>
+</html>
